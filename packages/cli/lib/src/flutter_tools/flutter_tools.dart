@@ -15,8 +15,8 @@ Future<void> runFlutterCmd(
   List<String> arguments,
 ) async {
   if (isCli) {
-    stdin.echoMode = false;
-    stdin.lineMode = false;
+    // stdin.echoMode = false;
+    // stdin.lineMode = false;
   }
 
   final execPath = getFlutterSdkExec(version);
@@ -34,11 +34,11 @@ Future<void> runFlutterCmd(
   exitCode = await process.exitCode;
 
   if (isCli) {
-    stdin.lineMode = true;
+    // stdin.lineMode = true;
     // echoMode needs to come after lineMode
     // Error on windows
     // https://github.com/dart-lang/sdk/issues/28599
-    stdin.echoMode = true;
+    // stdin.echoMode = true;
     await sharedStdIn.terminate();
   }
 }
